@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Hong Yanwen</title>
+<style>
+  :root{
+    --navy-deep:#0e1b30;
+    --navy:#16294a;
+    --navy-mid:#22375e;
+    --paper:#16294a;
+    --ink:#e9e7dd;
+    --ink-soft:#aeb3c4;
+    --hairline:rgba(255,255,255,0.16);
+    --brass:#c7ad72;
+    --brass-light:#dcc290;
+    --heading:#f5f3ea;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html,body{height:100%;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:24.5px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+
+  a{color:inherit;}
+
+  .top{
+    padding:32px;
+  }
+  .back-link{
+    font-size:17px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color 0.2s ease, border-color 0.2s ease;
+  }
+  .back-link:hover{color:var(--brass-light);border-color:var(--brass-light);}
+
+  main{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px 24px 64px;
+  }
+
+  .contact-card{
+    width:100%;
+    max-width:640px;
+  }
+
+  .contact-eyebrow{
+    font-size:19px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+    margin-bottom:14px;
+    text-align:center;
+  }
+
+  h1{
+    font-family:Georgia,Cambria,"Times New Roman",Times,serif;
+    font-weight:400;
+    font-size:clamp(42px,6vw,64px);
+    color:var(--heading);
+    text-align:center;
+    margin-bottom:16px;
+  }
+
+  .contact-sub{
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:19.5px;
+    max-width:480px;
+    margin:0 auto 56px;
+  }
+
+  form{
+    display:flex;
+    flex-direction:column;
+    gap:32px;
+  }
+
+  .field-section{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:12px;
+  }
+
+  .field-index{
+    font-family:Georgia,serif;
+    font-size:19px;
+    color:var(--brass-light);
+    letter-spacing:0.04em;
+  }
+
+  label{
+    font-size:16px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  input[type="email"],
+  textarea{
+    width:100%;
+    background:var(--navy-mid);
+    border:1px solid var(--hairline);
+    border-radius:2px;
+    color:var(--ink);
+    font-family:inherit;
+    font-size:22px;
+    text-align:center;
+    padding:18px 20px;
+    transition:border-color 0.2s ease;
+  }
+
+  input[type="email"]:focus,
+  textarea:focus{
+    outline:none;
+    border-color:var(--brass);
+  }
+
+  input::placeholder,
+  textarea::placeholder{
+    color:rgba(174,179,196,0.55);
+  }
+
+  textarea{
+    min-height:160px;
+    resize:vertical;
+    line-height:1.6;
+  }
+
+  .send-section{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    align-items:center;
+    text-align:center;
+    padding-top:8px;
+    border-top:1px solid var(--hairline);
+  }
+
+  button.send-btn{
+    font-family:Georgia,serif;
+    font-size:20px;
+    letter-spacing:0.04em;
+    color:var(--navy-deep);
+    background:var(--brass-light);
+    border:none;
+    padding:19px 52px;
+    cursor:pointer;
+    transition:background 0.2s ease, transform 0.15s ease;
+  }
+  button.send-btn:hover{background:var(--brass);}
+  button.send-btn:active{transform:translateY(1px);}
+
+  .send-note{
+    font-size:16px;
+    color:var(--ink-soft);
+  }
+
+  .status-msg{
+    font-size:16px;
+    color:var(--brass-light);
+    display:none;
+  }
+  .status-msg.visible{display:block;}
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a class="back-link" href="index.html">&larr; Back to profile</a>
+</div>
+
+<main>
+  <div class="contact-card">
+    <p class="contact-eyebrow">Get in touch</p>
+    <h1>Send a message</h1>
+    <p class="contact-sub">Fill in your email and a message below, and it will be sent directly to Hong Yanwen.</p>
+
+    <form id="contactForm">
+      <div class="field-section">
+        <span class="field-index">01 · Your email</span>
+        <label for="senderEmail">Your email address</label>
+        <input type="email" id="senderEmail" name="senderEmail" placeholder="you@example.com" required>
+      </div>
+
+      <div class="field-section">
+        <span class="field-index">02 · Your message</span>
+        <label for="messageBody">Message</label>
+        <textarea id="messageBody" name="messageBody" placeholder="Write your message here..." required></textarea>
+      </div>
+
+      <div class="send-section">
+        <span class="field-index">03 · Send</span>
+        <button type="submit" class="send-btn">Send to Hong Yanwen</button>
+        <p class="send-note">This opens your email app with the message pre-filled to n.hongyw@gmail.com.</p>
+        <p class="status-msg" id="statusMsg">Your email app should now be open — just hit send there.</p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+  var form = document.getElementById('contactForm');
+  var statusMsg = document.getElementById('statusMsg');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var senderEmail = document.getElementById('senderEmail').value.trim();
+    var messageBody = document.getElementById('messageBody').value.trim();
+
+    var subject = 'Message from ' + senderEmail + ' via portfolio site';
+    var body = messageBody + '\n\n---\nFrom: ' + senderEmail;
+
+    var mailtoLink = 'mailto:n.hongyw@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailtoLink;
+
+    statusMsg.classList.add('visible');
+  });
+</script>
+
+</body>
+</html>
